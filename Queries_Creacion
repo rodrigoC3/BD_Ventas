@@ -1,0 +1,107 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-10-2019 a las 03:49:01
+-- Versión del servidor: 5.6.17
+-- Versión de PHP: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de datos: `ventas`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturas`
+--
+
+CREATE TABLE IF NOT EXISTS `facturas` (
+  `idfactura` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `idproducto` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio` float NOT NULL,
+  PRIMARY KEY (`idfactura`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `facturas`
+--
+
+INSERT INTO `facturas` (`idfactura`, `iduser`, `idproducto`, `fecha`, `cantidad`, `precio`) VALUES
+(562, 1, 101, '2019-09-06', 1, 124900),
+(563, 1, 103, '2019-09-06', 1, 236700),
+(564, 3, 104, '2019-09-06', 3, 13000),
+(565, 2, 102, '2019-09-07', 1, 87000),
+(566, 4, 101, '2019-09-07', 1, 124900),
+(567, 3, 103, '2019-09-07', 2, 236700),
+(568, 1, 102, '2019-09-08', 3, 87450),
+(569, 3, 101, '2019-09-08', 2, 124900);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos5`
+--
+
+CREATE TABLE IF NOT EXISTS `productos5` (
+  `codigo` int(11) NOT NULL,
+  `nombre_product` varchar(40) NOT NULL,
+  `descripcion` varchar(250) NOT NULL,
+  `precio` float NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos5`
+--
+
+INSERT INTO `productos5` (`codigo`, `nombre_product`, `descripcion`, `precio`) VALUES
+(101, 'Licuadora de alta revolucion', 'Maquina de moler vidrio muy rapida de color negro', 124900),
+(102, 'Ventilador de pata ancha', 'Abanico para costeños que viven en Bogota', 87450),
+(103, 'Microondas de accion rapida', 'Equipo de onda corta con penetracion profunda en alimentos', 236700),
+(104, 'Cuchara de palo', 'Instrumento de cocina para batir chocolate y otros', 13000);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `apellido` varchar(45) NOT NULL,
+  `cedula` varchar(20) NOT NULL,
+  `direccion` varchar(50) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `celular` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `cedula`, `direccion`, `telefono`, `celular`, `email`) VALUES
+(1, 'GARCIA LOPEZ', 'JUAN CARLOS', '56890654', 'Calle con Carrera', '2568541', '3104529987', 'juancaga@gmail.com'),
+(2, 'RAMIREZ CASTRO', 'PEDRO ANTONIO', '54666451', 'Calle de la Hortensia', '2568541', '3104529987', 'peramcas@hotmail.com'),
+(3, 'SALAXAR FLOREZ', 'MARIA FERNANDA', '1020876099', 'Esquina de la acccion', '23300987', '3184328856', 'mafersala@hotmail.com'),
+(4, 'HERNANDEZ DIAZ', 'ROBERTO JOSE', '102522966', 'Carrera 86 # 69-43', '6547190', '3156119876', 'hernadi69@yahoo.com');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
